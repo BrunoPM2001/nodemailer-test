@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 const router = Router();
 
 router.get("/sendConfirmacion", (req, res) => {
-  const { esp, medico, dia } = req.body;
+  const { esp, medico, dia, email } = req.body;
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -18,7 +18,7 @@ router.get("/sendConfirmacion", (req, res) => {
 
   let mailOptions = {
     from: process.env.user, // TODO: email sender
-    to: "max.ichajaya@unmsm.edu.pe", // TODO: email receiver
+    to: email, // TODO: email receiver
     subject: "Confirmación de cita",
     text:
       "¡Gracias por usar nuestra app!\nCita reservada para el día " +
