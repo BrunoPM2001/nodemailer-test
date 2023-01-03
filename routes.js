@@ -17,8 +17,8 @@ router.post("/sendConfirmacion", (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.user,
-        pass: process.env.pass,
+        user: process.env.USER,
+        pass: process.env.PASS,
       },
     });
 
