@@ -7,6 +7,7 @@ router.post("/sendConfirmacion", (req, res) => {
   const { esp, medico, email } = req.body;
 
   if (email == undefined || medico == undefined || esp == undefined) {
+    console.log("Datos insuficientes");
     res.json({
       message: "Fail",
       detail: "Datos insuficientes para el envío.",
@@ -27,7 +28,7 @@ router.post("/sendConfirmacion", (req, res) => {
       to: email, // TODO: email receiver
       subject: "Confirmación de cita",
       text:
-        "¡Gracias por usar nuestra app!\nCita reservada con el Dr." +
+        "¡Gracias por usar nuestra app! Cita reservada con el Dr." +
         medico +
         ", especialista en " +
         esp +
@@ -42,6 +43,7 @@ router.post("/sendConfirmacion", (req, res) => {
           detail: "Error al enviar el correo a " + email,
         });
       }
+      console.log("Mensaje enviado!");
       res.json({ message: "Success", detail: "Correo enviado" });
     });
   }
