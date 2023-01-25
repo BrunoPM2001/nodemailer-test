@@ -24,7 +24,7 @@ router.post("/sendConfirmacion", (req, res) => {
     });
 
     let mailOptions = {
-      from: process.env.user, // TODO: email sender
+      from: process.env.USER, // TODO: email sender
       to: email, // TODO: email receiver
       subject: "Confirmación de cita",
       text:
